@@ -12,15 +12,13 @@ function App() {
     <Router>
       <NavigationBar />
       <Routes>
-        <Route path="/home" element={<Content />} />
-        <Route path="/read" element={<h1>Read Component</h1>} />
-        <Route path="/create" element={<h1>Create Component</h1>} />
-      </Routes>
-      <Footer />
-    </Router>
-<Header/>
-    </div>
-  );
-}
+        <Route path="/" element={<Content />} />
+        <Route path="/create" element={<Header />} />
+        <Route path="/Read" element={<Footer />} />
 
+      </Routes>
+      </Router>    
+    </div>
+);
+}
 export default App;

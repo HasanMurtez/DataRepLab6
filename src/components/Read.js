@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Movies from './movies';
 const Read = () => {
 
 const data = [[
@@ -29,6 +29,7 @@ const data = [[
   return (
     <div>
       <h3>Hello from the Read component</h3>
+      <Movies myMovies={data} />
      
     </div>
   );

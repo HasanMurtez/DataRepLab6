@@ -1,11 +1,12 @@
 import MovieItem from "./movieitem";
+import React from 'react';
+
 
 const Movies = (props)=>{
-    return(
-        <div>
-            movies component
-        <MovieItem />
-        </div>
-    );
+    return props.myMovies.map(
+        (movie)=>{
+            return <MovieItem myMovie={movie} key={movie.imdbID}/>
+        }
+    )
 }
 export default Movies;

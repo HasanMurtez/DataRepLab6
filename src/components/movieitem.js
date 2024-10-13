@@ -1,16 +1,25 @@
-import React from 'react';
+import { useEffect } from "react";
+import Card from 'react-bootstrap/Card';
+import React from "react";
 
+function MovieItem(props) {
+    useEffect(() => {
+        console.log("Movie Item:", props.myMovie); // Change to myMovie
+    }, [props.myMovie]);
 
-
-const MovieItem = (props)=>{
-    return(
+    return (
         <div>
-            <h3>{props.myMovie.Title}</h3>
-            <h4>{props.myMovie.Year}</h4>
-            <img src={props.myMovie.Poster}></img>
-
-
+            <Card>
+                <Card.Header>{props.myMovie.Title}</Card.Header> {/* Change to myMovie */}
+                <Card.Body>
+                    <blockquote className="blockquote mb-0">
+                        <img src={props.myMovie.Poster} alt={props.myMovie.Title} />
+                        <footer>{props.myMovie.Year}</footer>
+                    </blockquote>
+                </Card.Body>
+            </Card>
         </div>
-    )
+    );
 }
+
 export default MovieItem;

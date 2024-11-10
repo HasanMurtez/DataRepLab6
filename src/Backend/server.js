@@ -1,6 +1,12 @@
 const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 const app = express();
 const port = 4000;
+
+app.use(cors()); // Enable CORS
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.get('/api/movies', (req, res) => {
     const movies = [
@@ -27,6 +33,13 @@ app.get('/api/movies', (req, res) => {
         }
     ];
     res.status(200).json({ movies });
+});
+
+// POST route to handle movie data from React
+app.post('/api/movies', (req, res) => {
+    const { title, year, poster } = req.body;
+    console.log(`Received movie: Title - ${title}, Year - ${year}, Poster - ${poster}`);
+    res.status(201).send('Movie received');
 });
 
 app.listen(port, () => {

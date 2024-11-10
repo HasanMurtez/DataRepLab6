@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from 'axios';
 
 function Create() {
   const [title, setTitle] = useState('');
@@ -12,7 +13,15 @@ function Create() {
       year,
       poster,
     };
-    console.log(movieData);
+    
+    axios.post('http://localhost:4000/api/movies', movieData)
+      .then((res) => console.log('Response:', res.data))
+      .catch((err) => console.error('Error:', err));
+
+    // Optional: clear form fields after submission
+    setTitle('');
+    setYear('');
+    setPoster('');
   }
 
   return (
